@@ -37,6 +37,8 @@ router.post("/register", async function (req, res) {
 //login
 
 router.post("/login", async function (req, res) {
+  //login logic
+
   const { error } = loginValidation(req.body);
   console.log(error);
   if (error) return res.status(400).send(error.details[0].message);
