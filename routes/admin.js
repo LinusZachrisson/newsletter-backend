@@ -17,8 +17,21 @@ router.post("/adminpage", function (req, res) {
   
 })
 
-router.get("/adminUserinfo", function (req, res) {
-  res.send("hej")
+router.get("/adminUserinfo", async function (req, res) {
+  let template = `<h3>All users & subscribed emails : </h3>`;
+  let allUsers = await User.find()
+  console.log(allUsers);
+  for(users in allUsers) {
+    template += `<div>${allUsers[users].name}</div>`
+  }
+
+  for(users in allUsers) {
+    if(allUsers[users].newsletter === true) {
+      template += `<div>${allUsers[users].email}</div>`
+    }
+  }
+  
+  res.send(template)
 })
 
 module.exports = router;
