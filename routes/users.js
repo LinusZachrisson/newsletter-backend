@@ -14,11 +14,13 @@ router.post("/changesubscription/:id", function (req, res) {
   User.findByIdAndUpdate(
     { _id: req.params.id },
     { newsletter: false },
+    {new: true},
     function (err, result) {
+      console.log("result1", result)
       if (err) {
         res.send(err);
       } else {
-        res.send(result);
+        res.send({ user: result.name, newsletter: result.newsletter, id: result._id });
       }
     }
   );
@@ -29,11 +31,13 @@ router.post("/changetosubscribe/:id", function (req, res) {
   User.findByIdAndUpdate(
     { _id: req.params.id },
     { newsletter: true },
+    {new: true},
     function (err, result) {
+      console.log("result2", result)
       if (err) {
         res.send(err);
       } else {
-        res.send(result);
+        res.send({ user: result.name, newsletter: result.newsletter, id: result._id });
       }
     }
   );

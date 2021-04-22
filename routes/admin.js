@@ -9,16 +9,20 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/adminpage", function (req, res) {
+  
   console.log(req.body)
-  if(req.body.adminpassword=== "admin") {
+  if(req.body.adminpassword === "admin") {
   console.log("du är admin")
+  let savePwToLs = `<script> localStorage.setItem("adminpassword", admin) </script>`
+  
   res.redirect("/admin/adminUserinfo")
+  res.send(savePwToLs)
   }
   
 })
 
 router.get("/adminUserinfo", async function (req, res) {
-  let template = `<h3>All users & subscribed emails : </h3>`;
+  let template = `<script> if(!localStorage.getItem("adminpassword")) {window.location.replace("/admin");}</script> <h3>All users & subscribed emails : </h3>`;
   let allUsers = await User.find()
   console.log(allUsers);
   for(users in allUsers) {
