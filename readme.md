@@ -1,4 +1,4 @@
-1. Välkommen till get-my-newsletter server repot, här kommer lite instruktioner för hur de jobbar med denna app, för att komma åt front-end repot går ni in på denna länk: https://github.com/LinusZachrisson/newsletter-frontend.
+1. Välkommen till get-my-newsletter server repot, här kommer lite instruktioner för hur de jobbar med denna app, för att komma åt front-end repot går ni in på denna länk: https://github.com/LinusZachrisson/newsletter-frontend. För att komma åt servern i produktion så går ni in på denna länk: https://get-my-newsletter.herokuapp.com/
 
 2. Servern är kopplad till mongoDB atlas så där lagras alla användare som skapas i appen.
 
