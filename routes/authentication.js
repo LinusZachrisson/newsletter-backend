@@ -8,7 +8,6 @@ router.post("/register", async function (req, res) {
   //validate user
   console.log(req.body);
   const { error } = registerValidation(req.body);
-  console.log(error);
   if (error) return res.status(400).send(error.details[0].message);
 
   //checking if user exists
@@ -49,7 +48,6 @@ router.post("/login", async function (req, res) {
   //check if password is correct
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) return res.status(400).send("Wrong password");
-  console.log(req.body);
 
   //send id
 
